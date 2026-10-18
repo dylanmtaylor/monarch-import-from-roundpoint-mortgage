@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "monarch-import-from-roundpoint-mortgage"
+version = "0.1.0"
+description = "Extract RoundPoint Mortgage transaction history and unpaid principal balance into Monarch Money CSVs with automated browser capture."
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+authors = [
+    { name = "Dylan M. Taylor", email = "dylan@dylanmtaylor.com" }
+]
+keywords = [
+    "monarch",
+    "monarch-money",
+    "roundpoint",
+    "roundpoint-mortgage",
+    "mortgage",
+    "liability",
+    "loan",
+    "balance-history",
+    "transactions",
+    "amortization",
+    "escrow",
+    "finance",
+    "net-worth",
+    "csv",
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Topic :: Office/Business :: Financial",
+]
+dependencies = [
+    "websocket-client>=1.3.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+]
+
+[project.scripts]
+roundpoint-to-monarch = "roundpoint_to_monarch.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["roundpoint_to_monarch*"]
